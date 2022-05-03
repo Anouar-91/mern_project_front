@@ -16,26 +16,18 @@ const App = () => {
           // handle success
           console.log(res);
           setUid(res.data)
-/*           if (uid) {
-            axios.get(`${process.env.REACT_APP_API_URL}api/user/${uid}`, { withCredentials: true })
-              .then((response) => {
-                dispatch(getUser(response.data))
-              })
-              .catch((err) => {
-                console.log(err)
-              })
-          } */
         })
         .catch((error) => {
           // handle error
           console.log(error);
+          setUid(null)
         })
     }
     fetchToken();
     dispatch(getUser(uid))
-  }, [uid])
+  }, [uid, dispatch]);
 
-
+console.log(uid)
   return (
     <div>
       <UidContext.Provider value={uid}>

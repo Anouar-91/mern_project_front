@@ -2,6 +2,8 @@ import axios from "axios"
 export const GET_USER = "GET_USER";
 export const UPLOAD_PICTURE =  "UPLOAD_PICTURE";
 export const UPDATE_BIO =  "UPDATE_BIO";
+export const FOLLOW_USER =  "FOLLOW_USER";
+export const UNFOLLOW_USER =  "UNFOLLOW_USER";
 
 export const getUser = (uid) => {
   return (dispatch) => {
@@ -38,4 +40,34 @@ export const updateBio = (bio, id) => {
         })
         .catch((err) => console.log(err))
     };
+};
+
+export const followUser = (followerId, idToFollow) => {
+  return (dispatch) => {
+    return axios
+        ({ 
+          method: 'patch',
+          url: `${process.env.REACT_APP_API_URL}api/user/follow/${followerId}`,
+          data: {idToFollow},
+          withCredentials: true })
+        .then((res) => {
+          dispatch({ type: FOLLOW_USER, payload: res.data })
+        })
+        .catch((err) => console.log(err))
+    };
+};
+
+
+export const unfollowUser = (followerId, idToUnFollow) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `${process.env.REACT_APP_API_URL}api/user/unfollow/` + followerId,
+      data: { idToUnFollow },
+    })
+      .then((res) => {
+        dispatch({ type: UNFOLLOW_USER, payload:res.data });
+      })
+      .catch((err) => console.log(err));
+  };
 };

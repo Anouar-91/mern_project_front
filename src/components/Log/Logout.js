@@ -19,9 +19,11 @@ const Logout = () => {
         })
             .then(() => {
                 removeCookie("jwt")
-                navigate('/')
+
             } )
             .catch((err) => console.log(err));
+            window.location = "/";
+
     };
 
     return (
