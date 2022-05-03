@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { isEmpty, dateParser } from '../../services/utils'
 import FollowHandler from '../Profil/FollowHandler'
+import LikeButton from './LikeButton'
 
 const Card = ({ post }) => {
     const [isLoading, setIsLoading] = useState(true)
@@ -38,7 +39,8 @@ const Card = ({ post }) => {
                                         }
                                     })
                                 }</h3>
-                                    {post.posterId != userData._id &&
+                                    {post.posterId != userData._id  &&
+                                    userData[0] &&
                                         (<FollowHandler idToFollow={post.posterId} type="card" />)
                                     }
                                 </div>
@@ -62,7 +64,7 @@ const Card = ({ post }) => {
                                     <img src="./img/icons/message1.svg" alt="comment" />
                                     <span>{post.comments.length}</span>
                                 </div>
-                                <h6>Like button</h6>
+                                <LikeButton post={post}/>
                                 <img src="./img/icons/share.svg" alt="share" />
                             </div>
                         </div>
