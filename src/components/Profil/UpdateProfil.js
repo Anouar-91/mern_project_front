@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import LeftNav from '../LeftNav'
 import UploadImg from './UploadImg'
 import { useDispatch, useSelector } from 'react-redux';
-import { updateBio } from '../../actions/user.actions'
-import { dataParser } from '../../services/utils'
+import { updateBio } from '../../actions/user.action'
+import { dateParser } from '../../services/utils'
 import FollowHandler from './FollowHandler'
 import {isEmpty} from '../../services/utils'
 
@@ -58,7 +58,7 @@ const UpdateProfil = () => {
           </div>
           <br />
           <h4>Membre depuis le : </h4>
-          <p>{dataParser(userData.createdAt)}</p>
+          <p>{dateParser(userData.createdAt)}</p>
           <h5 onClick={() => setFollowingPopup(true)}>Abonnements : {userData.following ? (userData.following.length) : (0)}</h5>
           <h5 onClick={() => setFollowersPopup(true)}>Abonnés : {userData.followers ? (userData.followers.length) : (0)}</h5>
         </div>
@@ -77,7 +77,7 @@ const UpdateProfil = () => {
                         <img src={user.picture} alt="pic" />
                         <h4>{user.pseudo}</h4>
                         <div className="follow-handler">
-                          <FollowHandler idToFollow={user._id} />
+                          <FollowHandler idToFollow={user._id} type="suggestion" />
                         </div>
                       </li>
                     )
@@ -105,7 +105,7 @@ const UpdateProfil = () => {
                             <h4>{user.pseudo}</h4>
                             <div className="follow-handler">
     
-                            <FollowHandler idToFollow={user._id} />
+                            <FollowHandler idToFollow={user._id} type="suggestion"  />
                           </div>
                           </li>
                         )

@@ -6,11 +6,11 @@ import {Provider} from 'react-redux'
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers'
-import {getUsers} from './actions/users.actions'
+import {getUsers} from './actions/users.action'
 /* import {store } from './redux'
  */
 
-//devtools
+//devtools a mettre seulement en dev
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 
