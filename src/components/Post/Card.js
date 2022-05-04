@@ -5,6 +5,7 @@ import { isEmpty, dateParser } from '../../services/utils'
 import FollowHandler from '../Profil/FollowHandler'
 import LikeButton from './LikeButton'
 import DelelePost from './DelelePost'
+import CardComment from './CardComment'
 
 const Card = ({ post }) => {
     const [isLoading, setIsLoading] = useState(true)
@@ -12,6 +13,7 @@ const Card = ({ post }) => {
     const userData = useSelector(state => state.userReducer)
     const [isUpdated, setIsUpdated] = useState(false)
     const [textUpdated, setTextUpdated] = useState(null)
+    const [showComments, setShowComments]= useState(false)
     const dispatch = useDispatch()
 
     const updateItem =  () => {
@@ -98,12 +100,13 @@ const Card = ({ post }) => {
                             )}
                             <div className="card-footer">
                                 <div className="comment-icon">
-                                    <img src="./img/icons/message1.svg" alt="comment" />
+                                    <img src="./img/icons/message1.svg" alt="comment" onClick={() => setShowComments(!showComments)}/>
                                     <span>{post.comments.length}</span>
                                 </div>
                                 <LikeButton post={post}/>
                                 <img src="./img/icons/share.svg" alt="share" />
                             </div>
+                            {showComments && <CardComment post={post} />}
                         </div>
                     </>
                 )
