@@ -1,10 +1,8 @@
 import React from "react";
 import axios from "axios";
 import cookie from "js-cookie";
-import { useNavigate } from 'react-router-dom'
 
 const Logout = () => {
-    const navigate = useNavigate()
     const removeCookie = (key) => {
         if (window !== "undefined") {
             cookie.remove(key, { expires: 1 });

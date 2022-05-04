@@ -48,7 +48,8 @@ const unlike = () => {
       {uid && liked && (
           <img src="./img/icons/heart-filled.svg" alt="like" onClick={unlike} />
       )}
-        
+              <span>{post.likers.length}</span>
+
     </div>
   )
 }

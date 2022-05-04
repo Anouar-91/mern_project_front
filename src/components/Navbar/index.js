@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="logo">
           <NavLink exact="true" to="/">
             <div className="logo">
-              <img src="./img/icon.png" alt="icon"/>
+              <img src="./img/chapeau_de_paille.png" alt="icon"/>
               <h3>LineUp</h3>
             </div>
           </NavLink>
