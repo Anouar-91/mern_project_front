@@ -10,6 +10,7 @@ const Thread = () => {
   const [count, setCount] = useState(5);
   const dispatch = useDispatch();
   const posts = useSelector(state => state.postReducer);
+  const userData = useSelector(state => state.userReducer);
 
   const loadMore = () => {
     if(window.innerHeight + document.documentElement.scrollTop + 1 > document.scrollingElement.scrollHeight){
@@ -26,13 +27,25 @@ const Thread = () => {
     }
     window.addEventListener('scroll', loadMore);
     return () => window.removeEventListener('scroll', loadMore);
-  }, [loadPost, dispatch])
+  }, [loadPost, dispatch, userData, posts])
   return (
     <div className="thread-container">
           <ul>
             {!isEmpty(posts[0]) && 
             posts.map((post) => {
-              return <Card post={post} key={post._id}/>;
+/*               if(!isEmpty(userData)){
+                if(userData.following.includes(post.posterId) ){
+                  return <Card post={post} key={post._id}/>;
+                }
+                if(post.posterId === userData._id){ */
+                  return <Card post={post} key={post._id}/>;
+/*                 }
+              }
+              else{
+                return null
+              }
+ */
+
             })}
           </ul>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LeftNav from '../LeftNav'
 import UploadImg from './UploadImg'
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,10 +20,17 @@ const UpdateProfil = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault()
-    dispatch(updateBio(bio, userData._id));
+    if(userData.bio !== bio){
+      dispatch(updateBio(bio, userData._id));
+    }
     setUpdateForm(false)
   }
   
+  useEffect(() => {
+    if(userData){
+      setBio(userData.bio)
+    }
+  }, [userData])
   return isEmpty(userData) && isEmpty(usersData) ?  (
     <>
         <div className="loader"></div>
@@ -98,7 +105,7 @@ const UpdateProfil = () => {
             <ul>
               {
                   usersData.map((user) => {
-                    for (let i = 0; i < 2 ; i++) {
+                    for (let i = 0; i < userData.followers.length ; i++) {
                       if (user._id == userData.followers[i]) {
                         return (
                           <li key={user._id}>
