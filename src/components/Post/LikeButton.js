@@ -2,8 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import {UidContext} from '../AppContext'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import {isEmpty} from '../../services/utils'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {likePost, unlikePost} from '../../actions/post.action'
 
 

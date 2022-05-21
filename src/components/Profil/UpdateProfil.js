@@ -79,7 +79,7 @@ const UpdateProfil = () => {
             <ul>
               {usersData.map((user) => {
                 for (let i = 0; i < userData.following.length; i++) {
-                  if (user._id == userData.following[i]) {
+                  if (user._id === userData.following[i]) {
                     return (
                       <li key={user._id}>
                         <img src={user.picture} alt="pic" />
@@ -106,7 +106,7 @@ const UpdateProfil = () => {
               {
                   usersData.map((user) => {
                     for (let i = 0; i < userData.followers.length ; i++) {
-                      if (user._id == userData.followers[i]) {
+                      if (user._id === userData.followers[i]) {
                         return (
                           <li key={user._id}>
                             <img src={user.picture} alt="pic" />

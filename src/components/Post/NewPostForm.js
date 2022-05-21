@@ -93,7 +93,7 @@ const NewPostForm = () => {
                         </div>
                         <NavLink to="/profil" exact="true">
                             <div className="user-info">
-                                <img src={userData.picture} alt="picture profil" />
+                                <img src={userData.picture} alt="profil" />
                             </div>
                         </NavLink>
                         <div className="post-form">
@@ -106,7 +106,7 @@ const NewPostForm = () => {
                             {message || postPicture || video.length > 20 ? (
                                 <div className="card-container">
                                     <div className="card-left">
-                                    <img src={userData.picture} alt="picture profil" />
+                                    <img src={userData.picture} alt="profil" />
                                     </div>
                                     <div className="card-right">
                                         <div className="card-header">
@@ -117,7 +117,7 @@ const NewPostForm = () => {
                                         </div>
                                         <div className="content">
                                             <p>{message}</p>
-                                            {postPicture && <img src={postPicture} alt="picture post"/>}
+                                            {postPicture && <img src={postPicture} alt="post"/>}
                                             {video && (
                                                 <iframe 
                                                 src={video} 
@@ -140,7 +140,7 @@ const NewPostForm = () => {
                                 <div className="icon">
                                     {isEmpty(video) && (
                                         <>
-                                            <img src="./img/icons/picture.svg" alt="icon picture" />
+                                            <img src="./img/icons/picture.svg" alt="icon" />
                                             <input type='file' name="file" id="file-upload" accept='.jpg, .jpeg, .png'
                                                 onChange={e => handlePicture(e)} />
                                         </>

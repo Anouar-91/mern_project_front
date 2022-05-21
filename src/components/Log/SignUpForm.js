@@ -26,7 +26,7 @@ const SignUpForm = () => {
     if(!terms.checked){
       termError.innerHTML = "Vous devez acceptez les conditions générales !"
     }
-    if(terms.checked && password == controlPassword){
+    if(terms.checked && password === controlPassword){
       await axios.post(`${process.env.REACT_APP_API_URL}api/user/register`, {
         email,
         pseudo,
