@@ -77,6 +77,7 @@ const UpdateProfil = () => {
             <h3>Abonnements &nbsp; &nbsp;</h3>
             <span className="cross" onClick={() => setFollowingPopup(false)}>&#10005;</span>
             <ul>
+            {/*  eslint-disable-next-line */}
               {usersData.map((user) => {
                 for (let i = 0; i < userData.following.length; i++) {
                   if (user._id === userData.following[i]) {
@@ -104,6 +105,7 @@ const UpdateProfil = () => {
             <span className="cross" onClick={() => setFollowersPopup(false)}>&#10005;</span>
             <ul>
               {
+              /*    eslint-disable-next-line */
                   usersData.map((user) => {
                     for (let i = 0; i < userData.followers.length ; i++) {
                       if (user._id === userData.followers[i]) {
@@ -122,6 +124,27 @@ const UpdateProfil = () => {
                   })
               }
             </ul>
+{/*                         <ul>
+              {
+                  usersData.forEach((user) => {
+                    for (let i = 0; i < userData.followers.length ; i++) {
+                      if (user._id === userData.followers[i]) {
+                        console.log("test")
+                        {
+                          <li>
+                            <img src={user.picture} alt="pic" />
+                            <h4>{user.pseudo}</h4>
+                            <div className="follow-handler">
+    
+                            <FollowHandler idToFollow={user._id} type="suggestion"  />
+                          </div>
+                          </li>
+                        }
+                      }
+                    }
+                  })
+              }
+            </ul> */}
           </div>
         </div>
       )}
