@@ -11,7 +11,7 @@ export const GET_USER_ERRORS = 'GET_USER_ERRORS'
 export const getUser = (uid) => {
   return (dispatch) => {
     return axios
-      .get(`${process.env.REACT_APP_API_URL}api/user/${uid}`, { withCredentials: true, 'Access-Control-Allow-Origin': '*' })
+      .get(`${process.env.REACT_APP_API_URL}api/user/${uid}`, { withCredentials: true})
         .then((res) => {
           dispatch({ type: GET_USER, payload: res.data })
         })

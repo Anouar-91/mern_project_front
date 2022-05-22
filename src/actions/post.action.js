@@ -21,7 +21,7 @@ export const GET_POST_ERRORS = "GET_POST_ERRORS"
 export const getPosts = (count) => {
     return (dispatch) => {
         return axios
-            .get(`${process.env.REACT_APP_API_URL}api/post`, { withCredentials: true, 'Access-Control-Allow-Origin': '*' })
+            .get(`${process.env.REACT_APP_API_URL}api/post`, { withCredentials: true })
             .then((res) => {
                 const array = res.data.slice(0, count)
                 dispatch({ type: GET_POSTS, payload: array })
