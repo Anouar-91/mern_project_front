@@ -24,17 +24,6 @@ const SignInForm = () => {
     catch(error) {
       console.log(error);
     }
-    /* .then(function (res) {
-      if (res.data.errors) {
-        emailError.innerHTML = res.data.errors.email
-        passwordError.innerHTML = res.data.errors.password
-      } else {
- 
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    }); */
   }
   return (
     <form onSubmit={handleLogin} id="sig-up-form">

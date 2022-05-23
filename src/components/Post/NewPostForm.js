@@ -25,12 +25,10 @@ const NewPostForm = () => {
                 data.append('file', file)
             }
                 data.append('video', video)
-              
                 await dispatch(addPost(data));
                 dispatch(getPosts());
+
                 cancelPost()
-           
-         
         }else{
             alert("Veuillez entrer un message")
         }
@@ -49,7 +47,7 @@ const NewPostForm = () => {
         setMessage("")
         setPostPicture("")
         setFile("")
-
+        console.log("remis les states à 0")
     }
 
 
