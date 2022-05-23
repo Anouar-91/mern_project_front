@@ -15,8 +15,8 @@ const SignInForm = () => {
         password: password,
       },      { withCredentials: true })
       if (response.data.errors) {
-        emailError.innerHTML = res.data.errors.email
-        passwordError.innerHTML = res.data.errors.password
+        emailError.innerHTML = response.data.errors.email
+        passwordError.innerHTML = response.data.errors.password
       } else {
         window.location('/')
       }
