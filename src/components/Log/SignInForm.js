@@ -9,12 +9,22 @@ const SignInForm = () => {
     e.preventDefault()
     const emailError = document.querySelector('.email.error');
     const passwordError = document.querySelector('.password.error');
-
-    await axios.post(`${process.env.REACT_APP_API_URL}api/user/login`, {
-      email: email,
-      password: password,
-    },      { withCredentials: true })
-    .then(function (res) {
+    try{
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}api/user/login`, {
+        email: email,
+        password: password,
+      },      { withCredentials: true })
+      if (response.data.errors) {
+        emailError.innerHTML = res.data.errors.email
+        passwordError.innerHTML = res.data.errors.password
+      } else {
+        window.location('/')
+      }
+    }
+    catch(error) {
+      console.log(error);
+    }
+    /* .then(function (res) {
       if (res.data.errors) {
         emailError.innerHTML = res.data.errors.email
         passwordError.innerHTML = res.data.errors.password
@@ -24,7 +34,7 @@ const SignInForm = () => {
     })
     .catch(function (error) {
       console.log(error);
-    });
+    }); */
   }
   return (
     <form onSubmit={handleLogin} id="sig-up-form">
