@@ -18,7 +18,7 @@ const SignInForm = () => {
         emailError.innerHTML = response.data.errors.email
         passwordError.innerHTML = response.data.errors.password
       } else {
-        window.location('/')
+        window.location = "/";
       }
     }
     catch(error) {
